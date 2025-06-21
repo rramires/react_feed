@@ -1,4 +1,4 @@
-import './main-reset.css'
+import './main.reset.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'

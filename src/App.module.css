@@ -1,0 +1,11 @@
+.wrapper {
+    /* FIXME: Remove temporary BG */ background: var(--green-500); 
+    max-width: 70rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
