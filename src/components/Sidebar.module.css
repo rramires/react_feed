@@ -49,19 +49,28 @@
             border: 0.125rem solid var(--green-500); 
             padding: .35rem 1.5rem;
             border-radius: 8px;
+            white-space: nowrap;
+
+            span::before {
+                content: '';
+                display:inline-block;
+                vertical-align: top;
+                width: 20px;
+                height: 20px;
+                background: url(../assets/icons/pencil-line.svg); 
+                margin-right: .5rem;
+            }
 
             transition: color 0.1s, background-color 0.1s;
-
-            img {
-                vertical-align: top;
-                padding-right: 6px;
-            }
         }
 
         a:hover {
             background: var(--green-500);
             color: var(--white);
-            /* FIXME: Change pencil icon to white color */
+            
+            span::before {
+                background: url(../assets/icons/pencil-line-hover.svg); 
+            }
         }
     }
 }

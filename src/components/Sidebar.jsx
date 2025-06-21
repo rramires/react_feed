@@ -1,7 +1,5 @@
 import styles from './Sidebar.module.css';
 import profileTop from '../assets/profile-top.jpg';
-import pencilIcon from '../assets/icons/pencil-line.svg';
-//import pencilIconHover from '../assets/icons/pencil-line-hover.svg';
 
 export function Sidebar() {
     return (
@@ -18,8 +16,7 @@ export function Sidebar() {
 
             <footer>
                 <a href="#">   
-                    <img id='avatar' src={pencilIcon} />
-                    Editar seu perfil
+                    <span>Editar seu perfil</span>
                 </a>
             </footer>
         </aside>
