@@ -28,3 +28,8 @@ body, input, textarea, button {
   font-weight: 400;
   font-size: var(--font-size-normal);
 }
+
+:focus {
+  outline: transparent; 
+  box-shadow: 0 0 0 .125rem var(--green-300);
+}
