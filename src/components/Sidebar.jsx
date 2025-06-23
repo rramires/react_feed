@@ -8,7 +8,8 @@ export function Sidebar() {
             <img id='top' src={profileTop} />
 
             <div id='profile'>
-                <img id='avatar' src="https://avatars.githubusercontent.com/u/14129483?s=128&v=4" />
+                <img className={styles.avatarImg}
+                    src="https://avatars.githubusercontent.com/u/14129483?s=128&v=4" />
 
                 <strong>Ricardo Off</strong>
                 <span>Developer</span>

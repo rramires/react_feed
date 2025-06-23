@@ -4,7 +4,8 @@ export function Post() {
     return (
         <article className={styles.post}>
             <header>
-                    <img src="https://avatars.githubusercontent.com/u/14129483?s=128&v=4" />
+                    <img class={styles.avatarImg} 
+                        src="https://avatars.githubusercontent.com/u/14129483?s=128&v=4" />
                     <div>
                         <strong>Ricardo Off</strong>
                         <span>Developer</span>
@@ -20,11 +21,6 @@ export function Post() {
                     Fala galeraa 👋 
                 </p>
                 <p>  
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
                     Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
                 </p> 
                 <p>
