@@ -8,7 +8,11 @@
   --gray-800: #202024;
   --gray-900: #121214;
 
+  --green-300: #00B37E;
   --green-500: #00875f;
+
+  --font-size-normal: 1rem;
+  --font-size-small: .875rem;
 }
 
 body {
@@ -22,5 +26,5 @@ body {
 body, input, textarea, button {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: var(--font-size-normal);
 }
