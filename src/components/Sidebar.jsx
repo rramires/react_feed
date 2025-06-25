@@ -1,5 +1,6 @@
 import styles from './Sidebar.module.css';
 import profileTop from '../assets/profile-top.jpg';
+import { Avatar } from './Avatar';
 
 export function Sidebar() {
     return (
@@ -8,9 +9,7 @@ export function Sidebar() {
             <img id='top' src={profileTop} />
 
             <div id='profile'>
-                <img className={styles.avatarImg}
-                    src="https://avatars.githubusercontent.com/u/14129483?s=128&v=4" />
-
+                <Avatar src='https://avatars.githubusercontent.com/u/14129483?s=128&v=4'/>
                 <strong>Ricardo Off</strong>
                 <span>Developer</span>
             </div>

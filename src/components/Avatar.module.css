@@ -1,8 +1,10 @@
-.avatarImg {
+.avatar {
     width: 4rem;
     height: 4rem;
     border-radius: 16px;
+}
 
+.border {
     box-sizing: initial; 
     border: 4px solid var(--gray-800); 
     outline: 2px solid var(--green-500);
