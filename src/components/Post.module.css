@@ -60,7 +60,7 @@
         }
     }
 
-    form[id='comment'] {
+    form[id='feedback'] {
         width: 100%;
         margin-top:  1.5rem;
         border-top: .125rem solid var(--gray-600);
@@ -110,5 +110,9 @@
         button:hover {
             background: var(--green-300);
         }
+    }
+
+    div[id='comments'] {
+        margin-top: 2rem;
     }
 }

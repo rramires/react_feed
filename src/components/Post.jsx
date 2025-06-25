@@ -1,4 +1,5 @@
 import styles from './Post.module.css'
+import { Comment } from './Comment'
 
 export function Post() {
     return (
@@ -33,13 +34,19 @@ export function Post() {
                 </p>
             </div>
 
-            <form id='comment' action="#">
+            <form id='feedback' action="#">
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder='Deixe um comentário'></textarea>
                 <footer>
                     <button type='submit'>Publicar</button>
                 </footer>
             </form>
+
+            <div id='comments'>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
         </article>
     )
 }
