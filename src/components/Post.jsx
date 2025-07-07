@@ -2,39 +2,53 @@ import styles from './Post.module.css'
 import { Comment } from './Comment'
 import { Avatar } from './Avatar'
 
-export function Post(props) {
+import { format, formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR';
 
-    console.log('props: ', props)
+export function Post({ author, publishedAt, content }) {
+
+    /* 
+    // Javascript native lib
+    const dateFormat = new Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
+    }).format(publishedAt) 
+    */
+
+    const dateFormat = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR })
+    const dateRelativeToNow = formatDistanceToNow(publishedAt, { locale: ptBR, addSuffix: true })
 
     return (
         <article className={styles.post}>
             <header>
-                <Avatar src='https://avatars.githubusercontent.com/u/14129483?s=128&v=4'/>
+                <Avatar src={author.avatarUrl}/>
                 <div>
-                    <strong>Ricardo Off</strong>
-                    <span>Developer</span>
+                    <strong>{author.name}</strong>
+                    <span>{author.role}</span>
                 </div>
-                <time title='26 de Junho de 25 às 21:53h' 
-                    dateTime='2025-06-26 21:53:43'>
-                    Públicado há 1h
+                <time title={dateFormat} 
+                    dateTime={publishedAt.toISOString()}>
+                    Publicado {dateRelativeToNow}
                 </time>
             </header>
 
             <div id='content'>
-                <p>
-                    Fala galeraa 👋 
-                </p>
-                <p>  
-                    Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz usando React + Vite. 
-                </p> 
-                <p>
-                    O nome do projeto é React Feed 🚀
-                </p>
-                <p>
-                    <span>👉</span>
-                    <a href="#">#novoprojeto</a>
-                    <a href="#">#react+vite</a>
-                </p>
+                {content.map(line => {
+                    switch(line.type) {
+                        case 'paragraph' : 
+                            return (
+                                <p>{line.content}</p>
+                            )
+                        case 'link' : 
+                            return ( 
+                                <p>
+                                    <a href={line.content} target='_blank'>{line.content}</a>
+                                </p>
+                            )
+                    }
+                })}
             </div>
 
             <form id='feedback' action="#">
