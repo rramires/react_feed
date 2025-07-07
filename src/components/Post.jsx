@@ -35,15 +35,15 @@ export function Post({ author, publishedAt, content }) {
             </header>
 
             <div id='content'>
-                {content.map(line => {
+                {content.map((line, index) => {
                     switch(line.type) {
                         case 'paragraph' : 
                             return (
-                                <p>{line.content}</p>
+                                <p key={index}>{line.content}</p>
                             )
                         case 'link' : 
                             return ( 
-                                <p>
+                                <p key={index}>
                                     <a href={line.content} target='_blank'>{line.content}</a>
                                 </p>
                             )
