@@ -4,8 +4,20 @@ import { Avatar } from './Avatar'
 
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR';
+import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
+
+    const [comments, setComments] = useState([
+            1,
+            2,
+    ])
+
+    function handleNewComment(event) {
+        event.preventDefault()
+
+        setComments([...comments, comments.length + 1])
+    }
 
     /* 
     // Javascript native lib
@@ -51,7 +63,7 @@ export function Post({ author, publishedAt, content }) {
                 })}
             </div>
 
-            <form id='feedback' action="#">
+            <form id='feedback' onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
                 <textarea placeholder='Deixe um comentário'></textarea>
                 <footer>
@@ -60,9 +72,11 @@ export function Post({ author, publishedAt, content }) {
             </form>
 
             <div id='comments'>
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map((comment, index) => {
+                    return (
+                        <Comment key={index} />
+                    )
+                })}
             </div>
         </article>
     )
