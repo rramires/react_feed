@@ -9,14 +9,15 @@ import { useState } from 'react';
 export function Post({ author, publishedAt, content }) {
 
     const [comments, setComments] = useState([
-            1,
-            2,
+            'Muito bom Dev, parabéns!!!'
     ])
+
+    const [commentText, setCommentText] = useState('')
 
     function handleNewComment(event) {
         event.preventDefault()
-
-        setComments([...comments, comments.length + 1])
+        setComments([...comments, commentText])
+        setCommentText('')
     }
 
     /* 
@@ -65,7 +66,11 @@ export function Post({ author, publishedAt, content }) {
 
             <form id='feedback' onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
-                <textarea placeholder='Deixe um comentário'></textarea>
+                <textarea 
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    placeholder='Deixe um comentário'
+                />
                 <footer>
                     <button type='submit'>Publicar</button>
                 </footer>
@@ -74,7 +79,7 @@ export function Post({ author, publishedAt, content }) {
             <div id='comments'>
                 {comments.map((comment, index) => {
                     return (
-                        <Comment key={index} />
+                        <Comment key={index} content={comment} />
                     )
                 })}
             </div>

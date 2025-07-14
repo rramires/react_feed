@@ -3,7 +3,7 @@ import trashIcon from '../assets/icons/trash.svg';
 import thumbsUpIcon from '../assets/icons/thumbs-up.svg';
 import { Avatar } from './Avatar'
 
-export function Comment() {
+export function Comment({ content }) {
     return (
         <div className={styles.comment}>
             <Avatar hasBorder={false} src='https://avatars.githubusercontent.com/u/14129483?s=128&v=4'/>
@@ -14,7 +14,7 @@ export function Comment() {
                         dateTime='2025-06-26 21:53:43'>
                         Públicado há 1h
                     </time>
-                    <p>Muito bom Dev, parabéns!!! 👏👏</p>
+                    <p>{content}</p>
                     <button>
                         <img src={trashIcon} alt='Deletar comentário'/>
                     </button>
