@@ -4,20 +4,32 @@ import { Avatar } from './Avatar'
 
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export function Post({ author, publishedAt, content }) {
 
     const [comments, setComments] = useState([
-            'Muito bom Dev, parabéns!!!'
+        { id: 1, msg: 'Muito bom Dev, parabéns!!!' }
     ])
 
     const [commentText, setCommentText] = useState('')
 
+    const btnPublish = useRef(null)
+
     function handleNewComment(event) {
         event.preventDefault()
-        setComments([...comments, commentText])
+        setComments([...comments, { id: comments.length + 1, msg: commentText } ])
         setCommentText('')
+        // remove focus
+        btnPublish.current.blur()
+    }
+
+    function deleteComment(id){
+        //console.log('deleteComment:', id)
+        const diffComments = comments.filter(comment => {
+            return comment.id !== id;
+        })
+        setComments(diffComments)
     }
 
     /* 
@@ -72,14 +84,23 @@ export function Post({ author, publishedAt, content }) {
                     placeholder='Deixe um comentário'
                 />
                 <footer>
-                    <button type='submit'>Publicar</button>
+                    <button 
+                        ref={btnPublish}
+                        type='submit'>
+                        Publicar
+                    </button>
                 </footer>
             </form>
 
             <div id='comments'>
-                {comments.map((comment, index) => {
+                {comments.map((comment) => {
                     return (
-                        <Comment key={index} content={comment} />
+                        <Comment 
+                            key={comment.id} 
+                            id={comment.id} 
+                            content={comment.msg} 
+                            onDelete={deleteComment}
+                        />
                     )
                 })}
             </div>

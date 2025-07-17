@@ -3,7 +3,12 @@ import trashIcon from '../assets/icons/trash.svg';
 import thumbsUpIcon from '../assets/icons/thumbs-up.svg';
 import { Avatar } from './Avatar'
 
-export function Comment({ content }) {
+export function Comment({ id, content, onDelete }) {
+
+    function handleDelete() {
+        onDelete(id)
+    }
+
     return (
         <div className={styles.comment}>
             <Avatar hasBorder={false} src='https://avatars.githubusercontent.com/u/14129483?s=128&v=4'/>
@@ -15,7 +20,7 @@ export function Comment({ content }) {
                         Públicado há 1h
                     </time>
                     <p>{content}</p>
-                    <button>
+                    <button onClick={handleDelete}>
                         <img src={trashIcon} alt='Deletar comentário'/>
                     </button>
                 </div>
