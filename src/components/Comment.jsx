@@ -26,7 +26,7 @@ export function Comment({ id, content, onDelete }) {
                 </div>
                 <footer>
                     <button>
-                        <img src={thumbsUpIcon} alt='Deletar comentário'/>
+                        <img src={thumbsUpIcon} alt='Aplaudir comentário'/>
                     </button>
                     Aplaudir
                     <span>33</span>

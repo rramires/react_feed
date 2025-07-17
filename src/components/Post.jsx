@@ -16,8 +16,15 @@ export function Post({ author, publishedAt, content }) {
 
     const btnPublish = useRef(null)
 
+    const isCommentEmpty = commentText.length < 3;
+
+    /* function handleInvalidNewComment(event){
+        event.target.setCustomValidity('Esse campo é obrigatório!')
+    } */
+
     function handleNewComment(event) {
         event.preventDefault()
+
         setComments([...comments, { id: comments.length + 1, msg: commentText } ])
         setCommentText('')
         // remove focus
@@ -79,14 +86,15 @@ export function Post({ author, publishedAt, content }) {
             <form id='feedback' onSubmit={handleNewComment}>
                 <strong>Deixe seu feedback</strong>
                 <textarea 
+                    placeholder='Deixe um comentário'
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
-                    placeholder='Deixe um comentário'
+                    required
                 />
                 <footer>
-                    <button 
+                    <button type='submit'
                         ref={btnPublish}
-                        type='submit'>
+                        disabled={isCommentEmpty}>
                         Publicar
                     </button>
                 </footer>
