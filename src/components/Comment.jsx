@@ -2,8 +2,15 @@ import styles from './Comment.module.css'
 import trashIcon from '../assets/icons/trash.svg';
 import thumbsUpIcon from '../assets/icons/thumbs-up.svg';
 import { Avatar } from './Avatar'
+import { useState } from 'react';
 
 export function Comment({ id, content, onDelete }) {
+
+    const [clapping, setClapping] = useState(0)
+
+    function handleAddApplause(){
+        setClapping(clapping + 1)
+    }
 
     function handleDelete() {
         onDelete(id)
@@ -25,11 +32,11 @@ export function Comment({ id, content, onDelete }) {
                     </button>
                 </div>
                 <footer>
-                    <button>
+                    <button onClick={handleAddApplause}>
                         <img src={thumbsUpIcon} alt='Aplaudir comentário'/>
                     </button>
                     Aplaudir
-                    <span>33</span>
+                    <span>{clapping}</span>
                 </footer>
             </div>
         </div>
